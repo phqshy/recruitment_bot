@@ -25,7 +25,7 @@ async def api_coroutine():
 
                 if next_nation is not None:
                     # send telegram
-                    # sans.get(sans.Telegram(api_key, telegram_id, secret_key, next_nation), auth=limiter)
+                    sans.get(sans.Telegram(api_key, telegram_id, secret_key, next_nation), auth=limiter)
                     logger.debug(f"Telegram sent to {next_nation}")
 
                     # log sent telegram
