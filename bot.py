@@ -1,4 +1,5 @@
 import logging
+import os
 
 import discord
 
@@ -18,7 +19,7 @@ async def on_ready():
     logger.info(f"Logged in as {discord_bot.user}")
 
 
-@discord_bot.slash_command(name="ping", description="Ping the bot", guild_ids=[842498286920269844])
+@discord_bot.slash_command(name="ping", description="Ping the bot", guild_ids=[int(os.getenv("GUILD_ID"))])
 async def ping_command(ctx: discord.ApplicationContext):
     await ctx.respond(f"Pong! Latency is {round(discord_bot.latency * 1000, 2)}ms")
 

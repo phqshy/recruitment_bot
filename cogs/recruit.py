@@ -1,6 +1,7 @@
 import asyncio
 import datetime
 import logging
+import os
 from typing import Optional
 
 import discord
@@ -62,7 +63,7 @@ class Recruit(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    recruit = discord.SlashCommandGroup(name="recruit", guild_ids=[904135949900976159])
+    recruit = discord.SlashCommandGroup(name="recruit", guild_ids=[int(os.getenv("GUILD_ID"))])
 
     @recruit.command(description="Opens a new recruitment session")
     @discord.option("delay", description="Recruitment delay (default 40s)",

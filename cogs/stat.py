@@ -1,4 +1,5 @@
 import logging
+import os
 from datetime import datetime
 
 import discord
@@ -13,7 +14,7 @@ class Stat(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    stat = discord.SlashCommandGroup(name="stat", guild_ids=[904135949900976159])
+    stat = discord.SlashCommandGroup(name="stat", guild_ids=[int(os.getenv("GUILD_ID"))])
 
     @stat.command()
     async def daily(self, ctx: discord.ApplicationContext):
